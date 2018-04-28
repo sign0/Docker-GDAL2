@@ -44,6 +44,9 @@ RUN apt-get update -y && apt-get install -y \
     bash-completion \
     cmake
 
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+    apt-get install -y nodejs
+
 # Compile and install OpenJPEG
 RUN cd src && tar -xvf openjpeg-${OPENJPEG_VERSION}.tar.gz && cd openjpeg-${OPENJPEG_VERSION}/ \
     && mkdir build && cd build \
